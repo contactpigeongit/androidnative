@@ -5,6 +5,8 @@
     <string name="productview_text">ProductView</string>
     <string name="add2cart_text">Add2cart</string>
     <string name="removefromcart_text">RemoveFromCart</string>
+    <string name="add2wlist_text">Add2wlist</string>
+    <string name="removewlist_text">Removefromwlist</string>
     <string name="placeorder_text">PlaceOrder</string>
     <string name="postcart_text">PostCart</string>
     <string name="post_contact_email_text">Post Contact Email</string>

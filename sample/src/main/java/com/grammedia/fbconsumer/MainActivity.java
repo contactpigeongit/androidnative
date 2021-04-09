@@ -78,6 +78,28 @@ public class MainActivity extends FBSDKActivity {
         CPConnectionService.getInstance().removefromcart(pName, pSku, pQty, pUnitPrice, pimg, utmp);
     }
 
+    @OnClick(R.id.btn_add_w_list)
+    public void add2wlistBtnPressed(View view) {
+        String pName = "το προϊον μου";
+        String pSku = "12345-abcd";
+        int pQty = 6;
+        double pUnitPrice = 12.36;
+        String utmp = "/myandroidapp/myprodpage/";
+        String pimg = "";
+        CPConnectionService.getInstance().add2wlist(pName, pSku, pQty, pUnitPrice, pimg, utmp);
+    }
+
+    @OnClick(R.id.btn_remove_w_list)
+    public void removewlistBtnPressed(View view) {
+        String pName = "το προϊον μου";
+        String pSku = "12345-abcd";
+        int pQty = 2;
+        double pUnitPrice = 12.36;
+        String utmp = "/myandroidapp/myprodpage/";
+        String pimg = "";
+        CPConnectionService.getInstance().removefromwlist(pName, pSku, pQty, pUnitPrice, pimg, utmp);
+    }
+
     @OnClick(R.id.btn_place_order)
     public void placeOrderBtnPressed(View view) {
         String utmp = "";

@@ -42,6 +42,22 @@
         android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <Button
+            android:id="@+id/btn_add_w_list"
+            android:textAllCaps="false"
+            android:text="@string/add2wlist_text"
+            android:layout_marginBottom="@dimen/margin_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <Button
+            android:id="@+id/btn_remove_w_list"
+            android:textAllCaps="false"
+            android:text="@string/removewlist_text"
+            android:layout_marginBottom="@dimen/margin_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/btn_place_order"
         android:textAllCaps="false"

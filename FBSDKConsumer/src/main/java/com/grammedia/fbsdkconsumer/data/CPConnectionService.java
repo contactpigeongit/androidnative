@@ -319,6 +319,64 @@ public class CPConnectionService {
         alterCart(curCartItem, "remove");
     }
 
+    public void add2wlist(String pName, String pSku, int pQty, double pUnitPrice, String pImgURL, String utmp) {
+        String putmp = utmp;
+        if (putmp.isEmpty()) {
+            putmp = "/" + CPMainParameters.getInstance().bundleID + "/android/" + pName;
+        }
+        printMsg(String.format("putmp:%s", putmp));
+
+        String parameters = String.format("action=event&cptoken=%s&utmipc=%s&utmipn=%s&cf1=add2wlist&cf2=%s&cf3=%s&utmtid=&utmtto=&utmp=%s&utmdt=%s&cuem=%s&device_type=android&device_id=%s&device_osver=%s&bundle_id=%s&cp_ver=%s&cp_verClient=%s&utmsr=%s&language_code=%s&ci=%s",
+                CPMainParameters.getInstance().cptoken,
+                pSku,
+                pName,
+                pQty,
+                pUnitPrice,
+                putmp,
+                pName,
+                CPMainParameters.getInstance().cuem,
+                CPMainParameters.getInstance().model,
+                CPMainParameters.getInstance().systemVersion,
+                CPMainParameters.getInstance().bundleID,
+                CPMainParameters.getInstance().cp_ver,
+                CPMainParameters.getInstance().cp_verClient,
+                CPMainParameters.getInstance().utmsr,
+                CPMainParameters.getInstance().langStr,
+                CPMainParameters.getInstance().ci
+        );
+        printMsg(String.format("add2wlist parameters:%s", parameters));
+        new DoPostRequest().execute(CPMainParameters.getInstance().cpSubmitDataEndpoint, parameters);
+    }
+
+    public void removefromwlist(String pName, String pSku, int pQty, double pUnitPrice, String pImgURL, String utmp) {
+        String putmp = utmp;
+        if (putmp.isEmpty()) {
+            putmp = "/" + CPMainParameters.getInstance().bundleID + "/android/" + pName;
+        }
+        printMsg(String.format("putmp:%s", putmp));
+
+        String parameters = String.format("action=event&cptoken=%s&utmipc=%s&utmipn=%s&cf1=removefromwlist&cf2=%s&cf3=%s&utmtid=&utmtto=&utmp=%s&utmdt=%s&cuem=%s&device_type=android&device_id=%s&device_osver=%s&bundle_id=%s&cp_ver=%s&cp_verClient=%s&utmsr=%s&language_code=%s&ci=%s",
+                CPMainParameters.getInstance().cptoken,
+                pSku,
+                pName,
+                pQty,
+                pUnitPrice,
+                putmp,
+                pName,
+                CPMainParameters.getInstance().cuem,
+                CPMainParameters.getInstance().model,
+                CPMainParameters.getInstance().systemVersion,
+                CPMainParameters.getInstance().bundleID,
+                CPMainParameters.getInstance().cp_ver,
+                CPMainParameters.getInstance().cp_verClient,
+                CPMainParameters.getInstance().utmsr,
+                CPMainParameters.getInstance().langStr,
+                CPMainParameters.getInstance().ci
+        );
+        printMsg(String.format("removefromwlist parameters:%s", parameters));
+        new DoPostRequest().execute(CPMainParameters.getInstance().cpSubmitDataEndpoint, parameters);
+    }
+
     public void setOrderData(String oId, double oValue) {
         CPMainParameters.getInstance().curOrderData.utmtid = oId;
         printMsg(String.format("utmtid:%s", CPMainParameters.getInstance().curOrderData.utmtid));
@@ -472,7 +530,6 @@ public class CPConnectionService {
         }
         printMsg(String.format("askforregistration notsAllowed:%s", CPMainParameters.getInstance().notsAllowed));
     }
-
 
     public void getRegistrationToken() {
         FirebaseInstanceId.getInstance().getInstanceId()
